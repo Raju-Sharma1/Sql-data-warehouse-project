@@ -5,9 +5,12 @@ Go
 
 -- Drop and Recreate the 'Datawarehouse' database if already exits in the system
 
+/*--If a database named Datawarehouse exists, kick everyone out of it,
+roll back their transactions, and then delete that database completely.*/
+
 If Exists (Select 1 From sys.databases Where name = 'Datawarehouse')
 Begin
-	Alter Database Datawarehouse Set Single_user with Rollback immediate;
+	Alter Database Datawarehouse Set Single_user with Rollback immediate; 
 	Drop Database Datawarehouse;
 End;
 Go
@@ -32,8 +35,3 @@ Go
 
 Create Schema gold;
 Go
-
-
-
-
-
