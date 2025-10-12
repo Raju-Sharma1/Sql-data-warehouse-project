@@ -8,7 +8,7 @@ xxxxxxxxxxxxxxxxxxxxx
   This Stored Procedure extracts data from an external .CSV file and loads it on to 'bronze' schema.
   Following these actions along the way:
     - Truncates the tables on bronze layer before loading.
-    - BUILK INSERT command is in use to load data from the .CSV file to the Tables on the bronze layer.
+    - BULK INSERT command is in use to load data from the .CSV file to the Tables on the bronze layer.
 -------------------------------------------------------------------------------------------------------
 
 Parameters:
