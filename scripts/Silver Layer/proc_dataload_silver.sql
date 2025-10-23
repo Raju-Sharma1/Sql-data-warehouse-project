@@ -1,3 +1,29 @@
+/*
+============================================================================
+Stored Procedure: Load Silver Layer [From Source Bronze Layer -> to -> Silver Layer]
+============================================================================
+
+Purpose of the Script:
+xxxxxxxxxxxxxxxxxxxxx
+  This Stored Procedure extracts data from bronze layer and loads it on to 'silver' schema.
+  Following these actions along the way:
+    - Truncates the tables on silver layer before loading.
+    - INSERT INTO command is in use to load data from bronze tables to the Tables on the silver layer.
+-------------------------------------------------------------------------------------------------------
+
+Parameters:
+xxxxxxxxxx
+  NONE.
+  No Parameters are accepted in this Stored Procedure neither it returns any values.
+------------------------------------------------------
+
+Example Execution of Stored Procedure:
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+  EXEC silver.load_silver;
+=====================================
+
+*/
+
 --Inserting cleansed Data to silver.crm_cust_info table from bronze.crm_cust_info table 
 --after truncating the table if it contains any data
 
