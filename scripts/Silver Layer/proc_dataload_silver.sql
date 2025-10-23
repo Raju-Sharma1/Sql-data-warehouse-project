@@ -11,9 +11,13 @@ Go
 */
 
 /*
+=======================
+LOADING SILVER LAYER
+USING: STORED PROCEDURE
+=======================
+
 ============================================================================
 Insertig Data to -  Silver.crm.cust_info << ( FROM ) << bronze.crm.cust_info
-USING: STORED PROCEDURE
 ============================================================================
 */
 Create or alter PROCEDURE silver.load_silver AS
