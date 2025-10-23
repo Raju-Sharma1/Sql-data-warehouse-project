@@ -1,6 +1,17 @@
+/*
+======================================================
+  Creating: Silver Layer (DDL Scripts)
+======================================================
+xxxxxx  xxxxxxxxxxxxx  xxxxxxxxxxxxx  xxxxxxxx  xxxxxxxxxxxxx
+==============================================================================================
+Purpose of the Script:
++++++++++++++++++++++
+  It creates the Tables in the 'Silver' Schema, upon dropping the tables if they alreay exist.
+  To redefine the DDL structure of 'Silver' Schema run this script.
+==============================================================================================
+*/
 
-
-
+-- Drop table if exists and Create Table 'silver.crm_cust_info' 
 IF OBJECT_ID('silver.crm_cust_info', 'U') IS NOT NULL
 DROP TABLE silver.crm_cust_info;
 GO
@@ -15,6 +26,7 @@ Create Table silver.crm_cust_info (
 	dwh_create_date Datetime2 DEFAULT GETDATE()
 );
 
+-- Drop table if exists and Create Table 'silver.crm_prd_info' 
 IF OBJECT_ID('silver.crm_prd_info', 'U') IS NOT NULL
 DROP TABLE silver.crm_prd_info;
 GO
@@ -31,6 +43,7 @@ Create Table silver.crm_prd_info (
 );
 GO
 
+-- Drop table if exists and Create Table 'silver.crm_sales_details' 
 IF OBJECT_ID('silver.crm_sales_details', 'U') IS NOT NULL
 DROP TABLE silver.crm_sales_details;
 GO
@@ -48,6 +61,7 @@ Create Table silver.crm_sales_details (
 );
 GO
 
+-- Drop table if exists and Create Table 'silver.erp_cust_az12' 
 IF OBJECT_ID('silver.erp_cust_az12', 'U') IS NOT NULL
 DROP TABLE silver.erp_cust_az12;
 GO
@@ -59,6 +73,7 @@ Create Table silver.erp_cust_az12 (
 );
 GO
 
+-- Drop table if exists and Create Table 'silver.erp_loc_a101' 
 IF OBJECT_ID('silver.erp_loc_a101', 'U') IS NOT NULL
 DROP TABLE silver.erp_loc_a101;
 GO
@@ -69,10 +84,10 @@ Create Table silver.erp_loc_a101 (
 );
 GO
 
+-- Drop table if exists and Create Table 'silver.erp_px_cat_g1v2' 
 IF OBJECT_ID('silver.erp_px_cat_g1v2', 'U') IS NOT NULL
 DROP TABLE silver.erp_px_cat_g1v2;
 GO
-
 Create Table silver.erp_px_cat_g1v2 (
 	ID NVARCHAR(50),
 	CAT NVARCHAR(50),
