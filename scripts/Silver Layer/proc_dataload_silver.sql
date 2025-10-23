@@ -11,9 +11,10 @@ Go
 */
 
 /*
-==========================================================================
+============================================================================
 Insertig Data to -  Silver.crm.cust_info << ( FROM ) << bronze.crm.cust_info
-==========================================================================
+USING: STORED PROCEDURE
+============================================================================
 */
 Create or alter PROCEDURE silver.load_silver AS
 	BEGIN
@@ -301,5 +302,8 @@ Create or alter PROCEDURE silver.load_silver AS
 			PRINT '========================================='
 		END CATCH
 	END
+-- End of Stored Procedure
+-- ===============================================
 
+-- Executing Stored Procedure silver.load_silver
 EXec silver.load_silver
