@@ -24,15 +24,10 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 */
 
---Inserting cleansed Data to silver.crm_cust_info table from bronze.crm_cust_info table 
---after truncating the table if it contains any data
-
 /* Alternate code to check if table silver.crm_cust_info exists then Truncate data in the Table
 ===============================================================================================
-
 IF EXISTS (Select 1 from sys.tables Where name = 'crm_cust_info' and schema_id = schema_id('silver'))
 Truncate Table silver.crm_cust_info;
-Go
 ===============================================================================================
 */
 
