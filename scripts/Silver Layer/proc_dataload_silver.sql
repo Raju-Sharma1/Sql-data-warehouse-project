@@ -1,7 +1,7 @@
 /*
-============================================================================
+=====================================================================================
 Stored Procedure: Load Silver Layer [From Source Bronze Layer -> to -> Silver Layer]
-============================================================================
+=====================================================================================
 
 Purpose of the Script:
 xxxxxxxxxxxxxxxxxxxxx
@@ -9,13 +9,13 @@ xxxxxxxxxxxxxxxxxxxxx
   Following these actions along the way:
     - Truncates the tables on silver layer before loading.
     - INSERT INTO command is in use to load data from bronze tables to the Tables on the silver layer after Transforming and Cleaning the data.
--------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------------------
 
 Parameters:
 xxxxxxxxxx
   NONE.
   No Parameters are accepted in this Stored Procedure neither it returns any values.
-------------------------------------------------------
+------------------------------------------------------------------------------------
 
 Example Execution of Stored Procedure:
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
@@ -332,8 +332,10 @@ Create or alter PROCEDURE silver.load_silver AS
 			PRINT '========================================='
 		END CATCH
 	END
+					
+-- ========================
 -- End of Stored Procedure
--- ===============================================
+-- ========================
 
 -- Executing Stored Procedure silver.load_silver
 EXec silver.load_silver
