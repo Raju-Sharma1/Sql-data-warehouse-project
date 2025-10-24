@@ -19,13 +19,14 @@ Following SQL Queries are for Data Quality Checks:
 -----------
 USAGE NOTES:
 -----------
-    * These SQL queries should be executed after data has been loaded to the Silver Layer for checks.
+    * These SQL queries should be executed for checks after data has been loaded to the Silver Layer.
     * If found any discrepancies after the checks, Investigate and Resolve.
 
 ====================================
 Checking:  silver.crm_cust_info
 ====================================
 */
+
 -- Checking for Nulls and Blanks
 Select
     cst_id
