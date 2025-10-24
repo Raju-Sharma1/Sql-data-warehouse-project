@@ -1,4 +1,27 @@
 /*
+=====================
+            START....
+=====================
+Following SQL Queries are for Data Quality Checks:
+
+    Purpose:
+    --------
+        These Queries performs various quality checks for Data consistency, Quality, Accuracy, and Standardization throughout the Silver Layer
+        -------------------
+        Include Checks for:
+        -------------------
+        1. Null values.
+        2. Duplicate Values.
+        3. Unwanted Spaces in string values.
+        4. Data Standardization & Consistency.
+        5. Invalid Date Ranges and Orders.
+        6. Data Consistency between related Fields.
+-----------
+USAGE NOTES:
+-----------
+    * These SQL queries should be executed after data has been loaded to the Silver Layer for checks.
+    * If found any discrepancies after the checks, Investigate and Resolve.
+
 ====================================
 Checking:  silver.crm_cust_info
 ====================================
@@ -28,6 +51,7 @@ Select Distinct
   cst_marital_status
     From silver.crm_cust_info
 
+    
 /*
 ====================================
 Checking:  silver.crm_prd_info
@@ -70,6 +94,7 @@ Select
   *
   From silver.crm_prd_info
     Where prd_start_dt > prd_end_dt;
+
 
 /*
 ====================================
@@ -172,3 +197,14 @@ Select
         Where cat != trim(cat)
             OR subcat != trim(subcat)
             OR maintenance != trim(maintenance);
+
+-- Data Standardization and Consistency check
+Select Distinct
+    Maintenance
+    From silver.erp_px_cat_g1v2;
+
+/*
+===================
+            END....
+===================
+*/
