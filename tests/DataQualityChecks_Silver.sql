@@ -76,9 +76,18 @@ Select
 Checking:  silver.crm_sales_details
 ====================================
 */
--- ----------------------------------------------
+
+-- Checking for Negative values or 0's
+Select
+    sls_sales,
+    sls_quantity,
+    sls_price
+    From silver.crm_sales_details
+        Where sls_sales <= 0
+        OR sls_quantity <= 0
+        OR sls_price <= 0;
+
 -- Data Standardization and Consistency Check
--- ----------------------------------------------
 -- sls_sales = sls_quantity * sls_price
 Select
     sls_sales
@@ -89,6 +98,14 @@ Select
     sls_price
     From silver.crm_sales_details
       Where sls_price != sls_sales / sls_quantity;
+
+-- Checking for Nulls
+Select
+    *
+    From silver.crm_sales_details
+        Where sls_sales is null
+            OR sls_price is null
+            OR sls_quantity is null
   
 -- Checking for Invalid Dates
 Select
@@ -98,5 +115,60 @@ Select
       OR Len(sls_due_dt) != 8
       OR sls_due_dt > 20500101
       OR sls_due_dt < 19000101;
-  
 
+-- Checking invalid date orders (Checking for : sls_order_dt > sls_ship_dt/sls_due_dt)
+/* Correct Order: (sls_order_dt < sls_ship_dt)
+                (sls_ship_dt < sls_due_dt)
+*/
+Select
+    sls_order_dt,
+    sls_ship_dt,
+    sls_due_dt
+    From silver.crm_sales_details
+        Where sls_order_dt > sls_ship_dt
+            OR sls_ship_dt > sls_due_dt;
+
+
+/*
+====================================
+Checking:  silver.erp_cust_az12
+====================================
+*/
+
+-- Checking for Invalid Birthdates
+Select
+    BDATE
+    From silver.erp_cust_az12
+        Where BDATE > GETDATE();
+
+-- Data Standardization and Consistency check
+Select Distinct
+    GEN
+    From silver.erp_cust_az12;
+
+
+/*
+====================================
+Checking:  silver.erp_loc_a101
+====================================
+*/
+
+-- Data Standardization and Consistency check
+Select Distinct
+    CNTRY
+    From silver.erp_loc_a101;
+
+
+/*
+====================================
+Checking:  silver.erp_px_cat_g1v2
+====================================
+*/
+
+-- Checking for Unwanted spaces
+Select
+    *
+    From silver.erp_px_cat_g1v2
+        Where cat != trim(cat)
+            OR subcat != trim(subcat)
+            OR maintenance != trim(maintenance);
