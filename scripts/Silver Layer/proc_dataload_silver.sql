@@ -89,9 +89,10 @@ Create or alter PROCEDURE silver.load_silver AS
 			From (
 			Select
 				*,
-				Row_number() Over(Partition By cst_id Order By cst_create_date desc) Flag_last
+				Row_number() Over(Partition By cst_id Order By cst_create_date desc) Flag_last,
+				count(cst_id) Over(Partition By cst_id) id_count
 				From bronze.crm_cust_info
-			) t Where cst_id is NOT NULL
+			) t Where cst_id is NOT NULL AND id_count = 1
 
 				SET @end_time = GETDATE();
 				Print ''
