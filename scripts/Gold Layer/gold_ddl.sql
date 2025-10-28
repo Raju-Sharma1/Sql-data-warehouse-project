@@ -91,7 +91,7 @@ Select
 			Left Join gold.dim_products as dp
 		ON sd.sls_prd_key = dp.product_number
 			Left Join gold.dim_customers as dc
-		ON sd.sls_cust_id = dc.customer_id -- if we use till here for creating the VIEW gold.fact_sales (There will be NULL entries in gold.dim_customers table, Customer_id Column) Meaning multiple customers_id's that are present in sales table is not present in customer table
-			Where dc.customer_id is not null; -- Use till here to fix those errors when joining crm_sales with dim_customers table, By filtering out NULLs when fact_sales customer_key = dim_customers customer_key (We can also fix it when creating the gold.dim_customers view by joining  as 
-											 -- Right Join for getting all the entries of customer_key from silver.crm_sales_deatils with the silver.crm_cust Info and then filter out Null entries in customer table for customer_ids)
+		ON sd.sls_cust_id = dc.customer_id -- if we use till here for creating the VIEW gold.fact_sales (There will be NULL entries in gold.dim_customers table, Customer_id Column) Meaning multiple customers_id's that are present in sales table is not present in customer table which should be invalid, since customer table holds accurate customer information. 
+			Where dc.customer_id is not null; -- Use till here to fix those errors when joining crm_sales with dim_customers table, By filtering out NULLs when fact_sales customer_key = dim_customers customer_key (We can also fix it when creating the gold.dim_customers view by joining using 
+											 -- RIGHT JOIN for getting all the entries of customer_key from silver.crm_sales_deatils with the silver.crm_cust Info and then filter out Null entries of customer Id's from customers_table)
 GO	
