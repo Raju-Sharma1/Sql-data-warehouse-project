@@ -15,7 +15,7 @@ PURPOSE OF THE SCRIPT:
 
 USAGE:
 ------
-	These Views can be queries directly for Analyzing Data and Reporting.
+	These Views can be queried directly for Analyzing Data and Reporting.
 =========================================================================
 */
 
