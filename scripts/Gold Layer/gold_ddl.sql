@@ -1,16 +1,25 @@
-
-
-
-
 /*
 ===================================
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
-BUILDING GOLD LAYER
+DDL Script: BUILDING GOLD LAYER
 
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 ===================================
+
+PURPOSE OF THE SCRIPT:
+----------------------
+	1. These scripts creates the views for the Gold Layer in the data warehouse.
+	2. Gold Layer represents the final dimension and Fact tables (Using Star Schema).
+
+* Each view in these scripts performs Data Transformation and Data Integration from the Silver Layer to produce Clean, Enriched
+  and Business-Ready Datasets.
+
+USAGE:
+------
+	These Views can be queries directly for Analyzing Data and Reporting.
+=========================================================================
 */
+
+
 -- ====================================================================================
 -- Creating (gold.dim_customers) View (Master information = CRM)
 -- (Found Mis_matching information in ci.cst_gndr and ca.GEN) (Applying CRM information)
