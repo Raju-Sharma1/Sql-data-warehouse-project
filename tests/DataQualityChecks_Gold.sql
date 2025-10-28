@@ -5,15 +5,15 @@ Quality Checks
 
 Purpose of the scripts:
 -----------------------
-      This script performs quality checks to validate the integrity, cosistency and accuracy of the gold layer.
+      This script performs quality checks to validate the integrity, consistency and accuracy of the gold layer.
       
       These Checks ensures:
       --------------------
           1. Uniqueness of surrogate keys in the dimension tables.
-          2. Refrential integrity between fact and dimension tables.
-          3. validation of relationships in the data model for analytical purposes.
+          2. Referential integrity between fact and dimension tables.
+          3. Validation of relationships in the data model for analytical purposes.
 
-Usages Notes:
+Usage Notes:
 ------------
   Run these checks after loading data to the Gold Layer.
   Investigate and resolve any discrepancies found during the checks.
