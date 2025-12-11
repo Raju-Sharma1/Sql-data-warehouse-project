@@ -86,6 +86,6 @@ data-warehouse-project/
 
 This project is licensed under the [MIT License](LICENSE).
 
-## Credit: Udemy
+### Credit: Udemy
 Thanks to Baraa for Project idea, Datasets and Tutorial.
 
