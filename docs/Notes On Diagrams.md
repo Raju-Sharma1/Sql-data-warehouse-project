@@ -3,5 +3,5 @@
  
 All the Diagrams uploaded with .drawio extention requires Draw.io software to open and View. 
 ------------------------------------------------------------------------------------------------
-Samples of all the Diagram created in Draw.io is also available in .png files to view.       
+I've provided samples of all the Diagram's created in Draw.io in .png files to view as well.       
 ------------------------------------------------------------------------------------------------
